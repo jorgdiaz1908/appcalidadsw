@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h2>Evaluando Triángulo</h2>
+{% if error %}
+    <p class=error><strong>Error:</strong> {{ error }}
+{% endif %}
+    <form action="/addTriangulo" method="post">
+      <fieldset>
+        <legend>Escoge tres números para evaluar Triángulo </legend>
+        <label for="lado1">Lado 1 </label>
+        <input type="number" id="lado1" name="lado1" pattern ="0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required /><br>
+
+        <label for="lado2">Lado 2</label>
+        <input type="number" id="lado2" name="lado2" pattern ="0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57"required /><br>
+
+        <label for="lado3">Lado 3 </label>
+        <input type="number" id="lado3" name="lado3" pattern ="0+\.[0-9]*[1-9][0-9]*$" onkeypress="return event.charCode >= 48 && event.charCode <= 57" required/><br>
+
+        <button type="submit" name="button">Evaluar Triángulo</button> <br>
+      </fieldset>
+    </form><br>
+    <p class=msg><strong> </strong> {{ msg }}
+    <p>
+      <a href="/"> Regresar</a>
+    </p>
+  {% endblock %}

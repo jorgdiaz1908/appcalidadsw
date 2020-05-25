@@ -19,15 +19,15 @@ def eval_Triangulo():
         lado_2=int(request.form['lado2'])
         lado_3=int(request.form['lado3'])
         if ((lado_1 + lado_2 > lado_3) and (lado_1 + lado_3 > lado_2) and (lado_2 + lado_3 > lado_1)):
-            if (lado_1 == lado_2 and lado_2 == lado_3):
-                msg=('El triángulo es equilatero.')
+            if(lado_1 == lado_2 and lado_2 == lado_3):
+                msg=('El triangulo es equilatero.')
             elif(lado_1 == lado_2 or lado_1 == lado_3 or lado_2 == lado_3):
-                msg=('El triángulo es isosceles.')
+                msg=('El triangulo es isosceles.')
             else:
-                msg=('El triángulo es escaleno.')
+                msg=('El triangulo es escaleno.')
         else:
             error=('Las medidas no corresponde')
-    return render_template('triangulo.html',msg=msg, error=error)
+    return render_template('triangulo.html', msg=msg, error=error)
 
 @app.route(r'/addCuadrilatero', methods=['GET', 'POST'])
 def eval_Cuadrilatero():
@@ -40,9 +40,10 @@ def eval_Cuadrilatero():
         if (lado_1 == lado_2 and lado_3 == lado_4 and lado_1 == lado_3):
             msg=('La figura es un cuadrado')
         elif ((lado_1 == lado_2 and lado_3 == lado_4) or (lado_1 == lado_3 and lado_2 == lado_4) or (lado_1 == lado_4 and lado_2 == lado_3)):
-            msg=('La figura es un rectángulo')
+            msg=('La figura es un rectangulo')
         else:
             msg=('La figura es un trapecio')
-    return render_template("cuadrilatero.html",msg=msg)
+    return render_template('cuadrilatero.html',msg=msg)
+
 if __name__=='__main__':
     app.run()
